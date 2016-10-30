@@ -13,11 +13,16 @@ if not exist "%DevKitProductsFolder%" mkdir "%DevKitProductsFolder%"
 
 cd "%DevKitProductsFolder%"
 
+set 
 "C:\Program Files\CMake\bin\cmake.exe" ..\.. -G "Visual Studio 14 2015"
 
-if exist "%DevKitProductsSolutionPath%" start "%DevKitName%" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe" "%DevKitName.sln%"
-
-
+if exist "%DevKitName%.sln" (
+	start "%DevKitName%" "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe" "%DevKitName%.sln"
+) else (
+	echo %DevKitName%.sln does not exist in %CD%
+	set DevKit
+	cmd /b 
+)
 
 
 
