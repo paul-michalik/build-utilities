@@ -3,9 +3,11 @@
 set "DevKitFolder=%~1"
 set "DevKitName=%~n1.devkit"
 set "DevKitProductsFolder=%DevKitFolder%\products\windows.msbuild.x86.v140"
+set "DevKit3rdPartySoftwareDir=%USERPROFILE%\Software
 
-set "BOOST_ROOT=E:/Software/ext-libs/boost/boost_1_61_0-src"
-set "BOOST_LIBRARYDIR=E:/Software/ext-libs/boost/boost_1_61_0-bin/lib-x86-v140"
+set "DevKitBoostDir=%DevKit3rdPartySoftwareDir%\boost\boost-1.61.0"
+set "BOOST_ROOT=%DevKitBoostDir%\src"
+set "BOOST_LIBRARYDIR=%DevKitBoostDir%\targets\lib32-msvc-14.0"
 
 if not exist "%DevKitProductsFolder%" mkdir "%DevKitProductsFolder%"
 
