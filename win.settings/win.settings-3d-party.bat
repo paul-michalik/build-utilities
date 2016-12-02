@@ -1,5 +1,8 @@
 @echo off
 
+rem %~1: Platform: [x86, x64, arm-32, arm-64]
+rem %~2: Toolset: [v120, v140, ...]
+ 
 rem Convention 1: 
 set "DevKit3rdPartySoftwareDir=%USERPROFILE%\Software\3rd-party"
 
@@ -18,7 +21,7 @@ rem ==============================
 rem Boost libraries:
 set "DevKitBoostDir=%DevKit3rdPartySoftwareDir%\boost\boost-1.61.0"
 set "BOOST_ROOT=%DevKitBoostDir%\src"
-set "BOOST_LIBRARYDIR=%DevKitBoostDir%\products\windows\lib\lib-x86-v140"
+set "BOOST_LIBRARYDIR=%DevKitBoostDir%\products\windows\lib\lib-%~1-%~2"
 
 rem OpenCV:
 
