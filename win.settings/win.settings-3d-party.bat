@@ -4,12 +4,16 @@ rem %~1: Platform: [x86, x64, arm-32, arm-64]
 rem %~2: Toolset: [v120, v140, ...]
  
 rem Convention 1: 
-set "DevKit3rdPartySoftwareDir=%USERPROFILE%\Software"
+set "DevKit3rdPartySoftwareDir=%USERPROFILE%\Software\3rd-party"
 
-rem Convention 2: one level up is "source" containing all repos, two levels up is nothing and then "software"
+if not exist "%DevKit3rdPartySoftwareDir%" set "DevKit3rdPartySoftwareDir=%USERPROFILE%\Software"
+
+if not exist "%DevKit3rdPartySoftwareDir%" set "DevKit3rdPartySoftwareDir=%~p0\..\..\Software\3rd-party"
+
 if not exist "%DevKit3rdPartySoftwareDir%" set "DevKit3rdPartySoftwareDir=%~p0\..\..\Software"
 
-rem Convention 3: current drive\Software
+if not exist "%DevKit3rdPartySoftwareDir%" set "DevKit3rdPartySoftwareDir=%~d0\Software\3rd-party"
+
 if not exist "%DevKit3rdPartySoftwareDir%" set "DevKit3rdPartySoftwareDir=%~d0\Software"
 	
 rem add your own...
